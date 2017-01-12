@@ -16,7 +16,7 @@
 </script>
 
 <style lang="less" scoped>
-	@import '../assets/css/varables.less';
+	@import '../assets/css/variables.less';
 	#index{
 		width: 100%;
 		height: 2000px;

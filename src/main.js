@@ -5,6 +5,8 @@ import store from './store/index.js'
 import VueRouter from 'vue-router'
 import index from './page/index.vue'
 import Creat from './page/Creat.vue'
+import CreatSelect from './page/CreatSelect.vue'
+
 Vue.use(VueRouter)
 /* eslint-disable no-new */
 require("!style!css!less!./assets/css/main.less")
@@ -16,6 +18,7 @@ const router = new VueRouter({
 		{path:'/',component:index},
 		{path:'/index',component:index},
 		{path:'/Creat',component:Creat},
+		{path:'/CreatSelect',component:CreatSelect},
 		{path:'*',component:index}
 	]
 })
