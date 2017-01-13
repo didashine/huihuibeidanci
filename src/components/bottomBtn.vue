@@ -1,5 +1,5 @@
 <template>
-	<div class="bottomBtn">
+	<div id="bottomBtn">
 		<button class='btn text-size-md' :class='colorName'>{{value}}</button>
 	</div>
 </template>
@@ -25,7 +25,7 @@
 
 <style lang='less' scoped>
 	@import '../assets/css/variables.less';
-	.bottomBtn {
+	#bottomBtn {
 		width: 100%;
 		height: 50px;
 		text-align: center;

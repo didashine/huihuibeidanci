@@ -26,6 +26,10 @@ const router = new VueRouter({
 var vm = new Vue({
 	router,
 	store,
+	data: {
+		examTime:'2017-6-17',
+		studyTime:'90'
+	},
   template: `
 		<div>
 			<transition name='fade' mode='out-in'>
@@ -42,7 +46,7 @@ var vm = new Vue({
   	if (this.$store.state.newbi ==1) {
   		router.push({path:'/index'});
   	} else {
-  		router.push({path:'/Creat'});
+  		router.push({path:'/CreatSelect'});
   	}
   }
 }).$mount("#app");
