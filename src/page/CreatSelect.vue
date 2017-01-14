@@ -78,7 +78,7 @@
 		},
 		methods: {
 			toCreatSelect() {
-				this.$router.push({path:'/CreatSelect'});
+				this.$router.push({path:'/CreatFinish'});
 			},
 			dataSelect(id) {
 				let obj = document.getElementsByClassName('radiolg');
@@ -86,7 +86,7 @@
 					obj[i].setAttribute("class","noactive radiolg");
 				}
 				document.getElementById(id).setAttribute("class","active radiolg");
-				this.$parent.examTime = id.replace(/data-/g,'');
+				this.$parent.preExamDay = id.replace(/data-/g,'');
 			},
 			radioM() {
 				this.radioMore = !this.radioMore;
@@ -102,14 +102,6 @@
 			radioM() {
 				this.radioMore = !this.radioMore;
 			}
-		},
-		mounted() {
-			let o = document.getElementsByClassName("content");
-				for(let i =0 ; i < o.length ; i++){
-						let w = o[i].offsetWidth;  //宽度	
-						o[i].style.height= w+'px';
-						o[i].style.lineHeight= w+'px';
-				}
 		}
 	}
 </script>
@@ -124,11 +116,13 @@
 			.active {
 				display: inline-block;
 				border: 1px solid @green;
-				padding:5px;
-				width:40%;
+				padding: 5px;
+				width: 120px;
+				height: 120px;
 				.content {
 					text-align: center;
-					width: 100%;
+					width: 120px;
+					line-height: 120px;
 					background-color: @green;
 				}
 			}
@@ -136,10 +130,12 @@
 				display: inline-block;
 				border: 1px solid @white;
 				padding:5px;
-				width:40%;
+				width: 120px;
+				height: 120px;
 				.content {
 					text-align: center;
-					width: 100%;
+					width: 120px;
+					line-height: 120px;
 					background-color: @gray-lighter;
 				}
 			}
@@ -156,11 +152,13 @@
 			.active {
 				display: inline-block;
 				border: 1px solid @green;
-				padding:5px;
-				width:20%;
+				padding: 5px;
+				width: 60px;
+				height: 60px;
 				.content {
 					text-align: center;
-					width: 100%;
+					width: 60px;
+					line-height: 60px;
 					background-color: @green;
 				}
 			}
@@ -168,10 +166,12 @@
 				display: inline-block;
 				border: 1px solid @white;
 				padding:5px;
-				width:20%;
+				width: 60px;
+				height: 60px;
 				.content {
 					text-align: center;
-					width: 100%;
+					width: 60px;
+					line-height: 60px;
 					background-color: @gray-lighter;
 				}
 			}

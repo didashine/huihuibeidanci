@@ -6,6 +6,8 @@ import VueRouter from 'vue-router'
 import index from './page/index.vue'
 import Creat from './page/Creat.vue'
 import CreatSelect from './page/CreatSelect.vue'
+import CreatFinish from './page/CreatFinish.vue'
+import CreatSuccess from './page/CreatSuccess.vue'
 
 Vue.use(VueRouter)
 /* eslint-disable no-new */
@@ -19,6 +21,8 @@ const router = new VueRouter({
 		{path:'/index',component:index},
 		{path:'/Creat',component:Creat},
 		{path:'/CreatSelect',component:CreatSelect},
+		{path:'/CreatFinish',component:CreatFinish},
+		{path:'/CreatSuccess',component:CreatSuccess},
 		{path:'*',component:index}
 	]
 })
@@ -27,7 +31,7 @@ var vm = new Vue({
 	router,
 	store,
 	data: {
-		examTime:'2017-6-17',
+		preExamDay:'2017-6-17',
 		studyTime:'90'
 	},
   template: `
