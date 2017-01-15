@@ -1,15 +1,29 @@
 <template>
-	<div id="index" @click="goCreat">
-		my is index
+	<div id="index">
+		<header-md smallTitle='CET-4' show='y'></header-md>
+		<leftMenu v-show="this.$store.state.leftmenuShow"></leftMenu>
+		<face></face>
+		<div class="more"></div>
 	</div>
 </template>
 
 <script>
+	import headerMd from '../components/header-md.vue'
+	import leftMenu from '../components/leftmenu.vue'
+	import face from '../components/face.vue'
 	export default {
 		name:'index',
+		data() {
+			return {
+
+			}
+		},
+		components: {
+			headerMd,leftMenu,face
+		},
 		methods: {
-			goCreat() {
-				this.$router.push({path:'/Creat'});
+			toCreatSelect() {
+				this.$router.push({path:'/index'});
 			}
 		}
 	}
@@ -17,9 +31,7 @@
 
 <style lang="less" scoped>
 	@import '../assets/css/variables.less';
-	#index{
-		width: 100%;
-		height: 2000px;
-		background-color: @orange;
-		}	
+	#index {
+
+	}
 </style>
