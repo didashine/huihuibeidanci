@@ -12,6 +12,7 @@ import CreatSuccess from './page/CreatSuccess.vue'
 Vue.use(VueRouter)
 /* eslint-disable no-new */
 require("!style!css!less!./assets/css/main.less")
+require("!style!css!less!./assets/css/animate.min.css")
 
 const router = new VueRouter({
 	mode: 'history',
@@ -32,7 +33,8 @@ var vm = new Vue({
 	store,
 	data: {
 		preExamDay:'2017-6-17',
-		studyTime:'90'
+		studyTime:'90',
+		come:0
 	},
   template: `
 		<div>

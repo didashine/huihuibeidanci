@@ -16,6 +16,14 @@ xmlhttp.onreadystatechange = function() {
 }
 xmlhttp.open("GET","http://192.168.0.110/json/users.php",false);
 xmlhttp.send();
+
+const getters = {
+	stime() {
+		var mydate = new Date();
+		return mydate.getTime();
+	}
+}
 export default new Vuex.Store({
-	state
+	state,
+	getters
 })
