@@ -9,7 +9,7 @@
 			<div id="btn_main">
 				<div id="btn_border_left"></div>
 				<div id="btn_left" class="btnStyle">继续计划</div>
-				<div id="btn_right" class="btnStyle">复习加经验</div>
+				<div id="btn_right" class="btnStyle" @click="go([$router,'ReviseBegin'])">复习加经验</div>
 				<div id="btn_border_right"></div>
 			</div>
 		</div>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-	import {mapState,mapGetters} from 'vuex'
+	import {mapState,mapGetters,mapMutations} from 'vuex'
 	import headerMd from '../components/header-md.vue'
 	import leftMenu from '../components/leftmenu.vue'
 	import face from '../components/face.vue'
@@ -35,7 +35,10 @@
 		methods: {
 			toCreatSelect() {
 				this.$router.push({path:'/index'});
-			}
+			},
+			...mapMutations([
+					"go"
+				])
 		},
 		computed: {
 			...mapGetters([

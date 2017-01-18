@@ -23,7 +23,13 @@ const getters = {
 		return mydate.getTime();
 	}
 }
+var mutations = {
+	go(state,s) {
+		s[0].push({ path : '/'+s[1]})
+	}
+}
 export default new Vuex.Store({
 	state,
-	getters
+	getters,
+	mutations
 })

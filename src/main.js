@@ -8,6 +8,9 @@ import Creat from './page/Creat.vue'
 import CreatSelect from './page/CreatSelect.vue'
 import CreatFinish from './page/CreatFinish.vue'
 import CreatSuccess from './page/CreatSuccess.vue'
+import ReviseBegin from './page/ReviseBegin.vue'
+import Revise from './page/Revise.vue'
+import ErrorPage from './page/ErrorPage.vue'
 
 Vue.use(VueRouter)
 /* eslint-disable no-new */
@@ -24,6 +27,9 @@ const router = new VueRouter({
 		{path:'/CreatSelect',component:CreatSelect},
 		{path:'/CreatFinish',component:CreatFinish},
 		{path:'/CreatSuccess',component:CreatSuccess},
+		{path:'/ReviseBegin',component:ReviseBegin},
+		{path:'/Revise',component:Revise},
+		{path:'/ErrorPage',component:ErrorPage},
 		{path:'*',component:index}
 	]
 })
