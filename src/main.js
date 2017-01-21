@@ -10,6 +10,7 @@ import CreatFinish from './page/CreatFinish.vue'
 import CreatSuccess from './page/CreatSuccess.vue'
 import ReviseBegin from './page/ReviseBegin.vue'
 import Revise from './page/Revise.vue'
+import plan from './page/plan.vue'
 import ErrorPage from './page/ErrorPage.vue'
 
 Vue.use(VueRouter)
@@ -29,6 +30,7 @@ const router = new VueRouter({
 		{path:'/CreatSuccess',component:CreatSuccess},
 		{path:'/ReviseBegin',component:ReviseBegin},
 		{path:'/Revise',component:Revise},
+		{path:'/plan',component:plan},
 		{path:'/ErrorPage',component:ErrorPage},
 		{path:'*',component:index}
 	]

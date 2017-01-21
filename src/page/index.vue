@@ -3,14 +3,14 @@
 		<header-md smallTitle='CET-4' show='y'></header-md>
 		<leftMenu v-show="this.$store.state.leftmenuShow"></leftMenu>
 		<face></face>
-		<speed class="animated pulse"></speed>
+		<speed class="animated pulse" @click.native="go([$router,'plan'])"></speed>
 		<!-- 按钮 -->
 		<div id="btn">
 			<div id="btn_main">
-				<div id="btn_border_left"></div>
-				<div id="btn_left" class="btnStyle">继续计划</div>
+				<div id="btn_border_left" @click="go([$router,'plan'])"></div>
+				<div id="btn_left" class="btnStyle" @click="go([$router,'plan'])">继续计划</div>
 				<div id="btn_right" class="btnStyle" @click="go([$router,'ReviseBegin'])">复习加经验</div>
-				<div id="btn_border_right"></div>
+				<div id="btn_border_right" @click="go([$router,'ReviseBegin'])"></div>
 			</div>
 		</div>
 	</div>
