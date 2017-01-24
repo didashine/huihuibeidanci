@@ -15,6 +15,46 @@ var port = process.env.PORT || config.dev.port
 var proxyTable = config.dev.proxyTable
 
 var app = express()
+var appData = require('../dist/json/data.json');
+var plan = appData.plan;
+var post_reguser = appData.post_reguser;
+var Revise = appData.Revise;
+var updateuser = appData.updateuser;
+var users = appData.users;
+var apiRouters = express.Router();
+apiRouters.get('/plan', function (req, res) {
+  res.json({
+    errno: 0,
+    data: plan
+  });
+});
+apiRouters.get('/post_reguser', function (req, res) {
+  res.json({
+    errno: 0,
+    data: post_reguser
+  });
+});
+apiRouters.get('/Revise', function (req, res) {
+  res.json({
+    errno: 0,
+    data: Revise
+  });
+});
+apiRouters.get('/updateuser', function (req, res) {
+  res.json({
+    errno: 0,
+    data: updateuser
+  });
+});
+apiRouters.get('/users', function (req, res) {
+  res.json({
+    errno: 0,
+    data: users
+  });
+});
+app.use('/api', apiRouters);
+
+
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {

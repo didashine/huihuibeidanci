@@ -1,7 +1,7 @@
 <template>
 	<div id="index">
 		<header-md smallTitle='CET-4' show='y'></header-md>
-		<leftMenu v-show="this.$store.state.leftmenuShow"></leftMenu>
+		<leftMenu v-show="this.state.leftmenuShow"></leftMenu>
 		<face></face>
 		<speed class="animated pulse" @click.native="go([$router,'plan'])"></speed>
 		<!-- 按钮 -->
@@ -26,7 +26,7 @@
 		name:'index',
 		data() {
 			return {
-
+				state: ''
 			}
 		},
 		components: {
@@ -45,9 +45,17 @@
 					"stime"
 				])
 		},
+		created() {
+	    this.$http.get('/api/users').then((response) => {
+	      response = response.body;
+	      if (response.errno === 0) {
+	        this.state = response.data;
+	      }
+	    });
+	  },
 		mounted() {
 			if (this.$parent.come != 0) {
-				var state,xmlhttp
+				/*var state,xmlhttp
 				xmlhttp = new XMLHttpRequest();
 				xmlhttp.onreadystatechange = function() {
 					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -57,8 +65,14 @@
 					}
 				}
 		 	  xmlhttp.open("GET","http://" +this.$store.state.serverIp + "/json/users.php?date="+this.stime,true);
-			  xmlhttp.send();
-				this.$store.state.percent = state.percent;
+			  xmlhttp.send();*/
+			  this.$http.get('/api/users').then((response) => {
+		      response = response.body;
+		      if (response.errno === 0) {
+		        this.state = response.data;
+		      }
+		    });
+				this.state.percent = state.percent;
 			}
 		}
 	}

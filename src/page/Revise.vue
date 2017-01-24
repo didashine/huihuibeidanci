@@ -1,6 +1,6 @@
 <template>
 	<div id="Revise">
-		<div class="xp text-font-sm">经验值 {{this.$store.state.xp}}</div>
+		<div class="xp text-font-sm">经验值 {{this.state.xp}}</div>
 		<div id="addxp" class="color-orange" v-show="xpshow">+1</div>
 
 		<div class="padding-lg"></div>
@@ -30,7 +30,8 @@
 				nsrc:'',
 				formWrite:'',
 				xpshow: false,
-				num: 5
+				num: 5,
+				state: ''
 			}
 		},
 		mounted() {
@@ -38,7 +39,7 @@
 		}, 
 		methods: {
 			getform() {
-				var state,xmlhttp
+/*				var state,xmlhttp
 				xmlhttp = new XMLHttpRequest();
 				xmlhttp.open('get','http://192.168.0.110/json/Revise.php',false);
 				xmlhttp.onreadystatechange = function() {
@@ -48,11 +49,18 @@
 						state = {form:'',meaning: ''};
 					}
 				}
-				xmlhttp.send();
-				this.form = state.form;
-				this.meaning = state.meaning;
-				this.nsrc = 'http://192.168.0.110/sound/'+state.form+'.mp3';
-				this.num --;
+				xmlhttp.send();*/
+				this.$http.get('/api/Revise').then((response) => {
+	      	response = response.body;
+	     	  if (response.errno === 0) {
+	     	    this.state = response.data;
+	     	    this.form = this.state.form;	
+						this.meaning = this.state.meaning;
+						this.nsrc = 'http://192.168.0.110/sound/'+this.state.form+'.mp3';
+						this.num --;
+	   	    }
+	    	});
+				
 			},
 			play() {
 				var audio = document.getElementById('bgMusic');
@@ -63,7 +71,7 @@
 				if (this.form == this.formWrite) {
 					this.xpshow = true;
 					this.getform()
-					this.$store.state.xp = parseInt(this.$store.state.xp) +1;
+					this.state.xp = parseInt(this.state.xp) +1;
 					this.formWrite = '';
 					setInterval(() => {
 						this.xpshow = false;

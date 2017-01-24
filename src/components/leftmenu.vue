@@ -13,7 +13,7 @@
 		name:'leftmenu',
 		methods: {
 			closeMenu() {
-				this.$store.state.leftmenuShow = false;
+				this.$parent.state.leftmenuShow = false;
 			}
 		}
 	}

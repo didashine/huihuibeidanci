@@ -53,7 +53,11 @@
 					formData.append('preExamDay',this.$parent.preExamDay);
 					formData.append('studyTime',this.$parent.studyTime);
 					formData.append('sex',this.sex);
-					this.$http.post("http://" + this.$store.state.serverIP +"/json/post_reguser.php",formData).then((response) => {
+					/*
+						this.$http.post("http://" + this.$store.state.serverIP +"/json/post_reguser.php",formData)
+					*/
+					this.$http.get("/api/post_reguser").then((response) => {
+						response = response.body;
 						if (response.data ==1) {
 							this.$router.push({ path: '/CreatSuccess'});
 						}

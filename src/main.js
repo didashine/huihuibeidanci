@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import store from './store/index.js'
 import VueRouter from 'vue-router'
+import Vueresource from 'vue-resource';
 import index from './page/index.vue'
 import Creat from './page/Creat.vue'
 import CreatSelect from './page/CreatSelect.vue'
@@ -14,6 +15,7 @@ import plan from './page/plan.vue'
 import ErrorPage from './page/ErrorPage.vue'
 
 Vue.use(VueRouter)
+Vue.use(Vueresource);
 /* eslint-disable no-new */
 require("!style!css!less!./assets/css/main.less")
 require("!style!css!less!./assets/css/animate.min.css")
@@ -42,7 +44,8 @@ var vm = new Vue({
 	data: {
 		preExamDay:'2017-6-17',
 		studyTime:'90',
-		come:0
+		come:0,
+		state:''
 	},
   template: `
 		<div>
@@ -52,15 +55,23 @@ var vm = new Vue({
 		</div>
   `,
   beforeCreate() {
+  	this.$http.get('/api/users').then((response) => {
+	    response = response.body;
+	    if (response.errno === 0) {
+	      this.state = response.data;
+	    }
+	  });    	
+  },
+  created() {
   	// 和服务器链接 跳转
-  	if (this.$store.state.serverIP == 0) {
+  	if (this.state.serverIP == 0) {
   		router.push({path:'/error'});
   	}
   	// 判断是否为注册用户
-  	if (this.$store.state.newbi ==1) {
+  	if (this.state.newbi ==1) {
   		router.push({path:'/index'});
   	} else {
-  		router.push({path:'/index'});
+  		router.push({path:'/CreatFinish'});
   	}
   }
 }).$mount("#app");

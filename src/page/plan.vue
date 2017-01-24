@@ -59,7 +59,8 @@
 			this.forms = [];
 		},
 		mounted() {
-			this.$http.get('http://'+this.$store.state.serverIP+'/json/plan.php').then((response) => {
+			this.$http.get('/api/plan').then((response) => {
+				response = response.body
 				var formsTemp = eval(response.data);
 				for (var i in formsTemp) {
 					this.forms.push(formsTemp[i])

@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
-
 /*const state = {
 	newbi:'0'
 }*/
+
 var state,xmlhttp
 xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
