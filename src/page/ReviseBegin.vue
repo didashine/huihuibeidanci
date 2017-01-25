@@ -45,9 +45,8 @@
 				this.$router.push({path:'/Revise'});
 			}
 		},
-		watch: {
+/*		watch: {
 			readReviseRule(newval) {
-				console.log(newval);
 				var formData = new FormData();
 				if ( newval == true) {
 					formData.append('readReviseRule',1)
@@ -58,7 +57,7 @@
 					})
 				}
 			}
-		}
+		}*/
 	}
 </script>
 

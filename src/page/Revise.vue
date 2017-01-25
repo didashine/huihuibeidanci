@@ -1,6 +1,6 @@
 <template>
 	<div id="Revise">
-		<div class="xp text-font-sm">经验值 {{this.state.xp}}</div>
+		<div class="xp text-font-sm">经验值 {{this.$parent.state.xp}}</div>
 		<div id="addxp" class="color-orange" v-show="xpshow">+1</div>
 
 		<div class="padding-lg"></div>
