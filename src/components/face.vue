@@ -1,16 +1,16 @@
 <template>
 	<div id="face">
 		<div class="fl faceimg">
-			<img :src="$store.state.headerimgurl">
+			<img :src="state.headerimgurl">
 		</div>
 		<div class="fl shwox">
 			<h3 id="showname">
 				{{showname}}
-				<notice :num='this.$store.state.notice' v-show="noticeShow" class="notice"></notice>
+				<notice :num='this.state.notice' v-show="noticeShow" class="notice"></notice>
 			</h3>
 			<h4>
-				记忆力：<span class="text-orange">{{$store.state.memory}}</span>
-				经验值：<span class="text-green">{{$store.state.xp}}</span>
+				记忆力：<span class="text-orange">{{state.memory}}</span>
+				经验值：<span class="text-green">{{state.xp}}</span>
 			</h4>
 		</div>
 		<div class="cf"></div>
@@ -20,30 +20,44 @@
 <script>
 	import notice from '../components/notice.vue'
 	export default {
+		data() {
+			return {
+				state: ''
+			}
+		},
 		name:'face',
 		components: {notice},
 		props: ['openid'],
 		computed:{
 			noticeShow() {
-				if (this.$store.state.notice == 0) {
+				if (this.$parent.state.notice == 0) {
 					return false
 				} else {
 					return true
 				}
 			},
 			showname() {
-				var showname = this.$store.state.name;
-				if (showname.length>15) {
+				var showname = this.state.name;
+/*				if (showname.length>15) {
 					showname = showname.substring(0,8) + '...'
-				}
+				}*/
+	/*			console.log(showname)*/
 				return showname;
 			}
 		},
-		mounted() {
+		created() {
+	    this.$http.get('/api/users').then((response) => {
+	      response = response.body;
+	      if (response.errno === 0) {
+	        this.state = response.data;
+	      }
+	    });
+	  },
+/*		mounted() {
 			if (this.showname.length < 5) {
 				document.getElementById("showname").style.fontSize="200%";
 			}
-		}
+		}*/
 	}
 </script>
 

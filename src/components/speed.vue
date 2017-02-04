@@ -22,19 +22,21 @@
 				da:true,
 				xiao:true,
 				percentTextSay:'已完成',
-				percent:this.$store.state.percent
+				percent:this.$store.state.percent,
+				state:''
 			}
 		},
 		computed: {
 			percentText() {
-				if( this.percent == 0){
+				if( this.state.percent == 0){
 					this.percentTextSay = '点击这里开始'
 				}
-				return this.percent + '%'
+				return this.state.percent + '%'
 			}
 		},
 		methods:{
 			change(){
+				console.log(this.$parent.state)
 				if(this.percent < 50){
 					var xiao = parseInt(180-this.percent*1.8)
 					document.getElementById("xiao").style.transform = "rotate(-"+xiao+"deg)";
@@ -46,6 +48,14 @@
 				}
 			}
 		},
+		created() {
+	    this.$http.get('/api/users').then((response) => {
+	      response = response.body;
+	      if (response.errno === 0) {
+	        this.state = response.data;
+	      }
+	    });
+	  },
 		mounted() {
 			this.change()
 		}

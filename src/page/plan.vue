@@ -46,7 +46,7 @@
 				this.nmeaning = this.forms[this.now].meaning;
 				this.nnow = this.now+1;
 				var audio = document.getElementById('bgMusic');
-				audio.src = 'http://'+ this.$store.state.serverIP +'/sound/'+ this.nform +'.mp3';
+				/*audio.src = 'http://'+ this.$store.state.serverIP +'/sound/'+ this.nform +'.mp3';*/
 				setInterval(() => {
 					if (this.returnPlay < 3 && audio.ended == true) {
 						audio.play();

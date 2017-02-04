@@ -71,7 +71,7 @@ var vm = new Vue({
   	if (this.state.newbi ==1) {
   		router.push({path:'/index'});
   	} else {
-  		router.push({path:'/Creat'});
+  		router.push({path:'/index'});
   	}
   }
 }).$mount("#app");

@@ -56,7 +56,7 @@
 	     	    this.state = response.data;
 	     	    this.form = this.state.form;	
 						this.meaning = this.state.meaning;
-						this.nsrc = 'http://192.168.0.110/sound/'+this.state.form+'.mp3';
+						/*this.nsrc = 'http://192.168.0.110/sound/'+this.state.form+'.mp3';*/
 						this.num --;
 	   	    }
 	    	});
